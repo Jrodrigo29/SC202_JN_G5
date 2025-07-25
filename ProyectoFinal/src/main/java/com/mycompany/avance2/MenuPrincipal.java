@@ -12,9 +12,7 @@ import javax.swing.JOptionPane;
 
 public class MenuPrincipal {
     public void mostrar() {
-        System.out.println("Hola soy un cambio");
-                
-        boolean salir = false;
+       boolean salir = false;
 
         while (!salir) {
             String opcion = JOptionPane.showInputDialog(
