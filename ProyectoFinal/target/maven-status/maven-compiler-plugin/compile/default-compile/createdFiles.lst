@@ -2,4 +2,5 @@ com\mycompany\avance2\PanelAdministracion.class
 com\mycompany\avance2\SalidaVehiculo.class
 com\mycompany\avance2\MenuPrincipal.class
 com\mycompany\avance2\RegistroVehiculo.class
+com\mycompany\avance2\Vehiculo.class
 com\mycompany\avance2\HistorialMovimientos.class

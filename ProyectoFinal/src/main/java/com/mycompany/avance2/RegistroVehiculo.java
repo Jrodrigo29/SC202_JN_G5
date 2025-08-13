@@ -11,12 +11,25 @@ import javax.swing.JOptionPane;
  */
 
 public class RegistroVehiculo {
+    private Vehiculo vehiculo = new Vehiculo();
     public void mostrar() {
-        JOptionPane.showMessageDialog(null, "Detección del vehículo con sensor - En proceso.");
-        JOptionPane.showMessageDialog(null, "Captura de placa - En proceso.");
-        JOptionPane.showMessageDialog(null, "Generación de tiquete - En proceso.");
-        JOptionPane.showMessageDialog(null, "Impresión de tiquete - En proceso.");
-        JOptionPane.showMessageDialog(null, "Apertura de barrera automática - En proceso.");
+        // Solicitar datos
+        String placa = JOptionPane.showInputDialog("Ingrese la placa del vehículo:");
+        vehiculo.setPlaca(placa);
+
+        String modelo = JOptionPane.showInputDialog("Ingrese el modelo del vehículo:");
+        vehiculo.setModelo(modelo);
+
+        String color = JOptionPane.showInputDialog("Ingrese el color del vehículo:");
+        vehiculo.setColor(color);
+
+        // Mostrar resumen
+        String mensaje = "Registro exitoso:\n"
+                + "Placa: " + vehiculo.getPlaca() + "\n"
+                + "Modelo: " + vehiculo.getModelo() + "\n"
+                + "Color: " + vehiculo.getColor();
+
+        JOptionPane.showMessageDialog(null, mensaje);
     }
 }
 
