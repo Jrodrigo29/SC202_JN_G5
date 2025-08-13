@@ -45,4 +45,3 @@ public class MenuPrincipal {
         new MenuPrincipal().mostrar();
     }
 }
-regs

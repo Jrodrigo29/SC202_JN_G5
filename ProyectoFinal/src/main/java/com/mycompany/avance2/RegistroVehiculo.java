@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class RegistroVehiculo {
     private Vehiculo vehiculo = new Vehiculo();
     public void mostrar() {
-        // Solicitar datos
+        
         String placa = JOptionPane.showInputDialog("Ingrese la placa del vehículo:");
         vehiculo.setPlaca(placa);
 
@@ -23,7 +23,7 @@ public class RegistroVehiculo {
         String color = JOptionPane.showInputDialog("Ingrese el color del vehículo:");
         vehiculo.setColor(color);
 
-        // Mostrar resumen
+        
         String mensaje = "Registro exitoso:\n"
                 + "Placa: " + vehiculo.getPlaca() + "\n"
                 + "Modelo: " + vehiculo.getModelo() + "\n"
