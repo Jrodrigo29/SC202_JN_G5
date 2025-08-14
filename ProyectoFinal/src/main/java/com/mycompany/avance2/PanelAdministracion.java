@@ -27,7 +27,6 @@ public class PanelAdministracion {
                 volver = true;
             } 
             else if (opcion.equals("1")) {
-                // Mostrar cuántos vehículos hay y su información breve
                 String info = "Vehículos actualmente en el parqueo:\n";
                 if (BaseDatosVehiculos.getCantidad() == 0) {
                     info += "No hay vehículos en el parqueo.";
@@ -40,7 +39,6 @@ public class PanelAdministracion {
                 JOptionPane.showMessageDialog(null, info);
             } 
             else if (opcion.equals("2")) {
-                // Configuración básica de tarifa
                 String tarifaStr = JOptionPane.showInputDialog("Ingrese la tarifa por hora (colones):");
                 if (tarifaStr != null && tarifaStr.matches("\\d+")) {
                     int tarifa = Integer.parseInt(tarifaStr);
@@ -57,7 +55,6 @@ public class PanelAdministracion {
                     "- Datos en memoria");
             } 
             else if (opcion.equals("4")) {
-                // Reporte de cantidad total de vehículos que han pasado
                 JOptionPane.showMessageDialog(null, 
                     "Reporte General:\n" +
                     "- Vehículos actualmente en el parqueo: " + BaseDatosVehiculos.getCantidad() + "\n" +
