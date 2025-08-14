@@ -12,31 +12,22 @@ import javax.swing.JOptionPane;
 
 public class HistorialMovimientos {
     public void mostrar() {
-        boolean volver = false;
+    String historial = "Vehículos en el parqueo:\n\n";
 
-        while (!volver) {
-            String opcion = JOptionPane.showInputDialog(
-                "Historial de Movimientos\n\n" +
-                "1. Buscar por número de placa\n" +
-                "2. Buscar por fecha\n" +
-                "3. Buscar por número de tiquete\n" +
-                "4. Ver pagos realizados\n" +
-                "5. Volver al menú principal\n\n" +
-                "Ingrese el número de la opción:");
-
-            if (opcion == null || opcion.equals("5")) {
-                volver = true;
-            } else if (opcion.equals("1")) {
-                JOptionPane.showMessageDialog(null, "Buscar por placa - En proceso.");
-            } else if (opcion.equals("2")) {
-                JOptionPane.showMessageDialog(null, "Buscar por fecha - En proceso.");
-            } else if (opcion.equals("3")) {
-                JOptionPane.showMessageDialog(null, "Buscar por número de tiquete - En proceso.");
-            } else if (opcion.equals("4")) {
-                JOptionPane.showMessageDialog(null, "Ver pagos realizados - En proceso.");
-            } else {
-                JOptionPane.showMessageDialog(null, "Opción inválida. Intente de nuevo.");
-            }
+    if (BaseDatosVehiculos.getCantidad() == 0) {
+        historial += "No hay vehículos registrados.";
+    } else {
+        for (int i = 0; i < BaseDatosVehiculos.getCantidad(); i++) {
+            Vehiculo vehiculo = BaseDatosVehiculos.getVehiculos()[i];
+            historial += "Tiquete: " + vehiculo.getTiquete()
+                        + " - Placa: " + vehiculo.getPlaca()
+                        + " - Modelo: " + vehiculo.getModelo()
+                        + " - Color: " + vehiculo.getColor()
+                        + "\n";
         }
     }
+
+    JOptionPane.showMessageDialog(null, historial);
 }
+    
+}    

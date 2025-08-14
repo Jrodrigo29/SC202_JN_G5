@@ -12,11 +12,12 @@ import javax.swing.JOptionPane;
 
 public class MenuPrincipal {
     public void mostrar() {
+    
        boolean salir = false;
 
         while (!salir) {
             String opcion = JOptionPane.showInputDialog(
-                "Bienvenido al Sistema de Parqueo\n\n" +
+                "Bienvenido al Sistema de Parqueo\n" +
                 "1. Registro de Vehículo\n" +
                 "2. Salida de Vehículo\n" +
                 "3. Panel de Administración\n" +

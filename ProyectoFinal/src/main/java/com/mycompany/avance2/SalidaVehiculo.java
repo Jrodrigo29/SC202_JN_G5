@@ -13,12 +13,27 @@ import javax.swing.JOptionPane;
 public class SalidaVehiculo {
     public void mostrar() {
         String placa = JOptionPane.showInputDialog("Ingrese la placa del vehículo que sale:");
+        if (placa == null) {
+            JOptionPane.showMessageDialog(null, "Placa inválida.");
+            return;
+        }
+        if (placa.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Placa inválida.");
+            return;
+        }
 
-        
+        Vehiculo vehiculo = BaseDatosVehiculos.buscarPorPlaca(placa);
 
-        JOptionPane.showMessageDialog(null, "Procesando salida para vehículo con placa: " + placa);
-        JOptionPane.showMessageDialog(null, "Cálculo de tiempo y monto - En proceso.");
-        JOptionPane.showMessageDialog(null, "Registro de pago - En proceso.");
-        JOptionPane.showMessageDialog(null, "Apertura de barrera automática - En proceso.");
+        if (vehiculo == null) {
+            JOptionPane.showMessageDialog(null, "Vehículo no encontrado.");
+        } else {
+            JOptionPane.showMessageDialog(null, 
+                "Salida registrada:\n" +
+                "Placa: " + vehiculo.getPlaca() + "\n" +
+                "Modelo: " + vehiculo.getModelo() + "\n" +
+                "Color: " + vehiculo.getColor() + "\n" +
+                "Tiquete: " + vehiculo.getTiquete()
+            );
+        }
     }
 }
