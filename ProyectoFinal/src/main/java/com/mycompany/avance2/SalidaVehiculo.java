@@ -13,11 +13,7 @@ import javax.swing.JOptionPane;
 public class SalidaVehiculo {
     public void mostrar() {
         String placa = JOptionPane.showInputDialog("Ingrese la placa del vehículo que sale:");
-        if (placa == null) {
-            JOptionPane.showMessageDialog(null, "Placa inválida.");
-            return;
-        }
-        if (placa.isEmpty()) {
+        if (placa == null || placa.trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Placa inválida.");
             return;
         }
@@ -27,6 +23,7 @@ public class SalidaVehiculo {
         if (vehiculo == null) {
             JOptionPane.showMessageDialog(null, "Vehículo no encontrado.");
         } else {
+            BaseDatosVehiculos.eliminarVehiculo(placa);
             JOptionPane.showMessageDialog(null, 
                 "Salida registrada:\n" +
                 "Placa: " + vehiculo.getPlaca() + "\n" +

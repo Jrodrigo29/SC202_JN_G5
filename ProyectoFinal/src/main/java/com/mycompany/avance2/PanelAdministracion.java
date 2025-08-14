@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
  *
  * @author AMD
  */
-
 public class PanelAdministracion {
     public void mostrar() {
         boolean volver = false;
@@ -26,18 +25,49 @@ public class PanelAdministracion {
 
             if (opcion == null || opcion.equals("5")) {
                 volver = true;
-            } else if (opcion.equals("1")) {
-                JOptionPane.showMessageDialog(null, "Visualización en tiempo real - En proceso.");
-            } else if (opcion.equals("2")) {
-                JOptionPane.showMessageDialog(null, "Gestión de tarifas - En proceso.");
-            } else if (opcion.equals("3")) {
-                JOptionPane.showMessageDialog(null, "Configuración del sistema - En proceso.");
-            } else if (opcion.equals("4")) {
-                JOptionPane.showMessageDialog(null, "Reportes - En proceso.");
-            } else {
+            } 
+            else if (opcion.equals("1")) {
+                // Mostrar cuántos vehículos hay y su información breve
+                String info = "Vehículos actualmente en el parqueo:\n";
+                if (BaseDatosVehiculos.getCantidad() == 0) {
+                    info += "No hay vehículos en el parqueo.";
+                } else {
+                    for (int i = 0; i < BaseDatosVehiculos.getCantidad(); i++) {
+                        Vehiculo v = BaseDatosVehiculos.getVehiculos()[i];
+                        info += "- " + v.getPlaca() + " (" + v.getModelo() + ", " + v.getColor() + ")\n";
+                    }
+                }
+                JOptionPane.showMessageDialog(null, info);
+            } 
+            else if (opcion.equals("2")) {
+                // Configuración básica de tarifa
+                String tarifaStr = JOptionPane.showInputDialog("Ingrese la tarifa por hora (colones):");
+                if (tarifaStr != null && tarifaStr.matches("\\d+")) {
+                    int tarifa = Integer.parseInt(tarifaStr);
+                    JOptionPane.showMessageDialog(null, "Tarifa actualizada a: " + tarifa + " colones/hora.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Tarifa inválida.");
+                }
+            } 
+            else if (opcion.equals("3")) {
+                JOptionPane.showMessageDialog(null, 
+                    "Configuración del sistema:\n" +
+                    "- Capacidad máxima: 5 vehículos\n" +
+                    "- Tarifa configurable\n" +
+                    "- Datos en memoria");
+            } 
+            else if (opcion.equals("4")) {
+                // Reporte de cantidad total de vehículos que han pasado
+                JOptionPane.showMessageDialog(null, 
+                    "Reporte General:\n" +
+                    "- Vehículos actualmente en el parqueo: " + BaseDatosVehiculos.getCantidad() + "\n" +
+                    "- Capacidad restante: " + (5 - BaseDatosVehiculos.getCantidad()));
+            } 
+            else {
                 JOptionPane.showMessageDialog(null, "Opción inválida. Intente de nuevo.");
             }
         }
     }
 }
+
 

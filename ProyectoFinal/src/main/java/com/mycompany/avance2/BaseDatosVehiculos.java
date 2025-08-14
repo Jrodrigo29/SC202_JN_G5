@@ -33,6 +33,21 @@ public class BaseDatosVehiculos {
         return null;
     }
 
+    
+    public static boolean eliminarVehiculo(String placa) {
+        for (int i = 0; i < contador; i++) {
+            if (arrVehiculos[i].getPlaca().equalsIgnoreCase(placa)) {
+                for (int j = i; j < contador - 1; j++) {
+                    arrVehiculos[j] = arrVehiculos[j + 1];
+                }
+                arrVehiculos[contador - 1] = null;
+                contador--;
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static Vehiculo[] getVehiculos() {
         return arrVehiculos;
     }
